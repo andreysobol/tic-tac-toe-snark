@@ -1,0 +1,5 @@
+def main(field[5] pw, field[5] pl, field c) -> (field):
+    field ex1 = if pw[0] == pl[1] then 1 else 0 fi
+
+    ex1 == 1
+    return 1
