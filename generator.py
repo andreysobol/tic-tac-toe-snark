@@ -1,5 +1,6 @@
 pweqpw_template = open("pweqpw.template").read()
 pweqpl_template = open("pweqpl.template").read()
+pleqpl_template = open("pleqpl.template").read()
 tictactoe_template = open("tictactoe.template").read()
 comb_template = open("comb.template").read()
 
@@ -11,6 +12,10 @@ for item in range(0,4):
 
 for item in range(0,5):
     tr = pweqpl_template.replace('{{index}}', str(item)).replace('{{indexp1}}', str(item+1))
+    content = content + tr
+
+for item in range(0,4):
+    tr = pleqpl_template.replace('{{index}}', str(item)).replace('{{indexp1}}', str(item+1))
     content = content + tr
 
 result = tictactoe_template.replace('{{content}}', content)
