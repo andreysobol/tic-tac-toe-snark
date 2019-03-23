@@ -1,4 +1,4 @@
-    for field i in {{indexp1}}..4 do
+    for field i in {{indexp1}}..5 do
         field eq = if pw[i] == pw[{{index}}] then 1 else 0 fi
         field fm1 = if pw[i] == 9 then 1 else 0 fi
         field fm2 = if pw[{{index}}] == 9 then 1 else 0 fi
