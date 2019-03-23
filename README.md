@@ -1,6 +1,10 @@
 ## Structure
 
+- **field[4] pw** - list of winner previous moves. It can be position number (0-8) or empty move (9)
+- **field[4] pl** - list of loser previous moves. It can be position number (0-8) or empty move (9)
+- **field c** - current move. It should be position number (0-8).
 
+## Build
 
 #### Generation
 
