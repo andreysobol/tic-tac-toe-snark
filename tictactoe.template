@@ -11,5 +11,7 @@ def main(field[5] pw, field[5] pl, field c) -> (field):
         ex = ex + e
     endfor
 
+    {{content}}
+
     ex == 0
     return 1
