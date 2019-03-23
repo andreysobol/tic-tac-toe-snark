@@ -1,5 +1,14 @@
 def main(field[5] pw, field[5] pl, field c) -> (field):
+    field ex = 0
+
+    for field i in 0..4 do
+        field e = if pw[i] == c then 1 else 0 fi
+        ex = ex + e
+    endfor
+
+
+
     field ex1 = if pw[0] == pl[1] then 1 else 0 fi
 
-    ex1 == 1
+    ex1 == 0
     return 1
