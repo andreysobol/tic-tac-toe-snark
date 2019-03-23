@@ -6,15 +6,15 @@ comb_template = open("comb.template").read()
 
 content = ""
 
-for item in range(0,4):
+for item in range(0,3):
     tr = pweqpw_template.replace('{{index}}', str(item)).replace('{{indexp1}}', str(item+1))
     content = content + tr
 
-for item in range(0,5):
+for item in range(0,4):
     tr = pweqpl_template.replace('{{index}}', str(item)).replace('{{indexp1}}', str(item+1))
     content = content + tr
 
-for item in range(0,4):
+for item in range(0,3):
     tr = pleqpl_template.replace('{{index}}', str(item)).replace('{{indexp1}}', str(item+1))
     content = content + tr
 
