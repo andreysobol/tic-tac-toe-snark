@@ -1,6 +1,7 @@
 pweqpw_template = open("pweqpw.template").read()
 pweqpl_template = open("pweqpl.template").read()
 tictactoe_template = open("tictactoe.template").read()
+comb_template = open("comb.template").read()
 
 content = ""
 
@@ -13,6 +14,13 @@ for item in range(0,5):
     content = content + tr
 
 result = tictactoe_template.replace('{{content}}', content)
+
+comb = ""
+for item in range(0,8):
+    tr = comb_template.replace('{{count}}', str(item)).replace('{{comb}}', str(item))
+    comb = comb + tr
+
+result = result.replace('{{combs}}', comb)
 
 compiled = open("tictactoe.compiled.code", 'w')
 compiled.write(result)

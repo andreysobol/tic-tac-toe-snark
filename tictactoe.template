@@ -13,5 +13,25 @@ def main(field[5] pw, field[5] pl, field c) -> (field):
 
 {{content}}
 
-    ex == 0
+    field[6] wcomb = [pw[0], pw[1], pw[2], pw[3], pw[4], c]
+    
+    field r = 0
+
+    field[3] comb0 = [0, 1, 2]
+    field[3] comb1 = [3, 4, 5]
+    field[3] comb2 = [6, 7, 8]
+
+    field[3] comb3 = [0, 3, 5]
+    field[3] comb4 = [1, 4, 7]
+    field[3] comb5 = [2, 5, 8]
+
+    field[3] comb6 = [0, 4, 8]
+    field[3] comb7 = [2, 4, 6]
+
+{{combs}}
+
+
+    field fr = ex + if r==0 then 1 else 0 fi
+    fr == 0
+
     return 1

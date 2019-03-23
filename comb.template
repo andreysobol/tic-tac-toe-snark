@@ -1,0 +1,8 @@
+    field count{{count}} = 0
+    for field j in 0..2 do
+        for field k in 0..6 do
+            count{{count}} = count{{count}} + if wcomb[k]==comb{{comb}}[j] then 1 else 0 fi
+        endfor
+    endfor
+    r = r + if count{{count}}==3 then 1 else 0 fi
+
