@@ -14,6 +14,6 @@ for item in range(0,5):
 
 result = tictactoe_template.replace('{{content}}', content)
 
-compiled = open("ticktactoe.compiled.code", 'w')
+compiled = open("tictactoe.compiled.code", 'w')
 compiled.write(result)
 compiled.close()
