@@ -1,9 +1,9 @@
-    for field i in {{index}}..4 do
+    for field i in 0..4 do
         field eq = if pl[i] == pw[{{index}}] then 1 else 0 fi
         field fm1 = if pl[i] == 9 then 1 else 0 fi
         field fm2 = if pw[{{index}}] == 9 then 1 else 0 fi
         field fm3 = fm1+fm2
         field e = eq - if fm3==2 then 1 else 0 fi
-        ex = ex + eq
+        ex = ex + e
     endfor
 
