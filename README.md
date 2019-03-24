@@ -1,6 +1,6 @@
 ## Position numbers
 
-![Position numbers](imgs/position_numbers.png)
+<img height="300" src="imgs/position_numbers.png">
 
 ## Input structure
 
@@ -17,8 +17,45 @@ Tic-tac-toe zk snark protocol:
 ## Verification
 
 <img height="300" src="imgs/diagonals.png">
+
+```
+(0, 4, 8)
+(2, 4, 6)
+```
+
 <img height="300" src="imgs/vertical.png">
+
+```
+(0, 3, 5)
+(1, 4, 7)
+(2, 5, 8)
+```
+
 <img height="300" src="imgs/horizontal.png">
+
+```
+(0, 1, 2)
+(3, 4, 5)
+(6, 7, 8)
+```
+
+#### Contition against cheating
+
+```
+pw + c ∈ (0, 1, 2) or
+pw + c ∈ (3, 4, 5) or
+...
+pw + c ∈ (2, 4, 6)
+
+```
+
+<img height="300" src="imgs/cheat.png">
+
+#### Contition against cheating
+
+```
+Move1 != Move2 or ((Move1==Ø) and (Move2==Ø))
+```
 
 ## Build
 
