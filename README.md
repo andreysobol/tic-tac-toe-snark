@@ -39,7 +39,7 @@ Tic-tac-toe zk snark protocol:
 (6, 7, 8)
 ```
 
-#### Contition against cheating
+#### Main contition
 
 ```
 pw + c ∈ (0, 1, 2) or
@@ -49,9 +49,9 @@ pw + c ∈ (2, 4, 6)
 
 ```
 
-<img height="300" src="imgs/cheat.png">
-
 #### Contition against cheating
+
+<img height="300" src="imgs/cheat.png">
 
 ```
 Move1 != Move2 or ((Move1==Ø) and (Move2==Ø))
