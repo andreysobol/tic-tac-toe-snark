@@ -8,6 +8,12 @@
 - **field[4] pl** - list of loser previous moves. It can be position number (0-8) or empty move (9)
 - **field c** - current move. It should be position number (0-8).
 
+## Main protocol
+
+Main tic-tac-toe zk snark protocol:
+
+![Main tic-tac-toe zk snark protocol](imgs/proto.png)
+
 ## Build
 
 #### Generation
