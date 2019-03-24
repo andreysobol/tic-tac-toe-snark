@@ -49,7 +49,7 @@ pw + c ∈ (2, 4, 6)
 
 ```
 
-#### Contition against cheating
+#### Condition against cheating
 
 <img height="300" src="imgs/cheat.png">
 
