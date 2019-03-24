@@ -10,9 +10,13 @@
 
 ## Main protocol
 
-Main tic-tac-toe zk snark protocol:
+Tic-tac-toe zk snark protocol:
 
 ![Main tic-tac-toe zk snark protocol](imgs/proto.png)
+
+## Verification
+
+![Diagonals](imgs/diagonals.png)
 
 ## Build
 
