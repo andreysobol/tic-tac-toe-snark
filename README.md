@@ -21,3 +21,29 @@ python generator.py
 ./zokrates generate-proof
 ./zokrates export-verifier
 ````
+
+#### Deployment & verification (Dummy way)
+Extract verifier smart contract from zokrates docker image
+```
+docker cp <docker_id>:/home/zokrates/verifier.sol ./<CONTRACT_PATH>
+```
+##### Deployment
+
+* Open Remix browser https://remix.ethereum.org
+* Open *verifier.sol* in Remix
+* From the right side menu, select Compile tab.
+* Push *Start to compile (Ctrl-S)* button. Make sure compilation is successful
+* From the right side menu, select Run tab.
+* Make sure Metamask is unlocked, network is selected to the one you need (Ropsten for example) and wallet selected has some ETH
+* Push *Deploy* button (sign transaction in Metamask and wait until mined)
+
+##### Verification
+
+* Extract *proof.json* file from zokrates docker image
+```
+docker cp <docker_id>:/home/zokrates/proof.json ./<CONTRACT_PATH>
+```
+* Expand *verifyTx* function call tab.
+* Fill in fields from *proof.json* (copy & paste).
+* push *verifyTx* button. Confirm transaction in Metamask. 
+* When transaction mined, check that Verified("Transaction verified successfully") is emitted (on Etherscan)
