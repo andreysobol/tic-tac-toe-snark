@@ -26,7 +26,7 @@ Tic-tac-toe zk snark protocol:
 <img height="300" src="imgs/vertical.png">
 
 ```
-(0, 3, 5)
+(0, 3, 6)
 (1, 4, 7)
 (2, 5, 8)
 ```
