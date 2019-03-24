@@ -1,3 +1,7 @@
+# Tic-tac-toe using ZK SNARK
+
+<img src="imgs/logo.png">
+
 ## Position numbers
 
 <img height="300" src="imgs/position_numbers.png">
