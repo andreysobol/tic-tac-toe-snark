@@ -21,7 +21,7 @@ def main(field[4] pw, field[4] pl, field c) -> (field):
     field[3] comb1 = [3, 4, 5]
     field[3] comb2 = [6, 7, 8]
 
-    field[3] comb3 = [0, 3, 5]
+    field[3] comb3 = [0, 3, 6]
     field[3] comb4 = [1, 4, 7]
     field[3] comb5 = [2, 5, 8]
 

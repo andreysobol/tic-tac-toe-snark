@@ -1,8 +1,61 @@
-## Structure
+## Position numbers
+
+<img height="300" src="imgs/position_numbers.png">
+
+## Input structure
 
 - **field[4] pw** - list of winner previous moves. It can be position number (0-8) or empty move (9)
 - **field[4] pl** - list of loser previous moves. It can be position number (0-8) or empty move (9)
 - **field c** - current move. It should be position number (0-8).
+
+## Main protocol
+
+Tic-tac-toe zk snark protocol:
+
+![Main tic-tac-toe zk snark protocol](imgs/proto.png)
+
+## Verification
+
+<img height="300" src="imgs/diagonals.png">
+
+```
+(0, 4, 8)
+(2, 4, 6)
+```
+
+<img height="300" src="imgs/vertical.png">
+
+```
+(0, 3, 6)
+(1, 4, 7)
+(2, 5, 8)
+```
+
+<img height="300" src="imgs/horizontal.png">
+
+```
+(0, 1, 2)
+(3, 4, 5)
+(6, 7, 8)
+```
+
+#### Main contition
+
+```
+pw + c ∈ (0, 1, 2) or
+pw + c ∈ (3, 4, 5) or
+...
+pw + c ∈ (2, 4, 6)
+
+```
+
+#### Condition against cheating
+
+<img height="300" src="imgs/cheat.png">
+
+```
+Move1 != Move2 or ((Move1==Ø) and (Move2==Ø))
+```
 
 ## Build
 
