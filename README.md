@@ -16,7 +16,7 @@ Tic-tac-toe zk snark protocol:
 
 ## Verification
 
-![Diagonals](imgs/diagonals.png)
+<img height="300" src="imgs/diagonals.png"
 
 ## Build
 
