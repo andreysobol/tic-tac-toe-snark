@@ -1,7 +1,5 @@
 pragma solidity >=0.5 <0.6;
 
-//Disclaimer: DRAFT (SKELETON). May not even work. Just to illustrate idea.  
-
 library ECDSA {
 
   /**
