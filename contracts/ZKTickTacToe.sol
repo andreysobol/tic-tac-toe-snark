@@ -40,7 +40,7 @@ library ECDSA {
       return (address(0));
     } else {
       // solium-disable-next-line arg-overflow
-      return ecrecover(hash, v, r, s);
+      return ecrecover(toEthSignedMessageHash(hash), v, r, s);
     }
   }
 
@@ -78,7 +78,7 @@ contract VerifierInterface {
 contract ZKTickTacToe{
     using ECDSA for bytes32;
 
-    VerifierInterface verifier;
+    VerifierInterface public verifier;
 
     struct GameData {
         address party1;
@@ -123,6 +123,7 @@ contract ZKTickTacToe{
         if (gd.status==0x0) {
             gamedata[_gameID] = GameData (msg.sender,msg.value, address(0x0), 0x0, 1);
             emit BidReceived(_gameID, msg.sender, msg.value);
+            return;
         }
 
         //2nd party bid
@@ -183,19 +184,18 @@ contract ZKTickTacToe{
             uint[2]  memory c_p,
             uint[2]  memory h,
             uint[2]  memory k
-        ) public returns (bool r){
+        ) public returns (bool){
 
             require(_prevalidate(_gameID,_shaMovesGameID,_signature));
 
-            uint[3] memory input;
-            input[0]=_gameID;
-            input[1]=_shaMovesGameID;
+            uint[3] memory input = [uint(_gameID), _shaMovesGameID, 1];
             //
             emit Error("Game validation done");
 
             if(verifier.verifyTx(a,a_p,b,b_p,c,c_p,h,k,input)){
                 require(_payout(_gameID));
                 emit Error("Game paid");
+                gamedata[_gameID].status = 3;
                 return true;
             }else{
                 emit Error("Game validation failed");
@@ -203,10 +203,4 @@ contract ZKTickTacToe{
             }
 
         }
-
-
-
-
-
-
 }
