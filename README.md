@@ -63,18 +63,43 @@ Move1 != Move2 or ((Move1==Ø) and (Move2==Ø))
 
 ## Build
 
-#### Generation
+#### Generation of the circuit code
 
 ```
 python generator.py
 ```
+
+#### Compiling witness params for proof generation
+
+compile java project in paramgroup folder
+
+```
+cd ./paramgroup
+gradle fatJar
+```
+
+encode the game status according to the rules above and run the code. Command line parameters:
+ * gameID
+ * winner moves: pw[0] pw[1] pw[2] pw[3]
+ * looser moves: pl[0] pl[1] pl[2] pl[3]
+ * last winner move (which is not affected by looser game state signature)
+
+```
+java -jar ./build/libs/paramgroup-all-1.0-SNAPSHOT.jar 123 3 1 9 9 4 5 9 9 2
+```
+
+the goal is to have the compute-witness command out of this code. Example:
+```
+zokrates compute-witness -a 123 143110950276817851694412848238637525611 156833781044329042438065648861779802984 0 1 9 9 4 5 9 9 4
+```
+
 
 #### Compilation, Setup, Generation proof and verifier
 
 ```
 ./zokrates compile -i tictactoe.compiled.code
 ./zokrates setup
-./zokrates compute-witness -a 0 1 9 9 4 5 9 9 2
+./zokrates compute-witness -a 123 143110950276817851694412848238637525611 156833781044329042438065648861779802984 0 1 9 9 4 5 9 9 4
 ./zokrates generate-proof
 ./zokrates export-verifier
 ````
@@ -102,5 +127,5 @@ docker cp <docker_id>:/home/zokrates/proof.json ./<CONTRACT_PATH>
 ```
 * Expand *verifyTx* function call tab.
 * Fill in fields from *proof.json* (copy & paste).
-* push *verifyTx* button. Confirm transaction in Metamask. 
+* push *verifyTx* button. Confirm transaction in Metamask.
 * When transaction mined, check that Verified("Transaction verified successfully") is emitted (on Etherscan)
