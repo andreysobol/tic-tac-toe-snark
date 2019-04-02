@@ -1,4 +1,14 @@
-def main(field[4] pw, field[4] pl, field c) -> (field):
+import "hashes/sha256/512bitPacked.code" as sha256packed
+
+def main(field gameID, field[2] shaValue, private field[4] pw, private field[4] pl, private field c) -> (field):
+
+    field[2] hash1 = sha256packed(pw)
+    field[2] hash2 = sha256packed(pl)
+    field[2] hash3 = sha256packed([hash1[0], hash1[1], hash2[0], hash2[1]])
+    field[2] hash4 = sha256packed([0, gameID, hash3[0], hash3[1]])
+    hash4[0] == shaValue[0]
+    hash4[1] == shaValue[1]
+
     field ex = 0
 
     for field i in 0..4 do
@@ -14,7 +24,7 @@ def main(field[4] pw, field[4] pl, field c) -> (field):
 {{content}}
 
     field[5] wcomb = [pw[0], pw[1], pw[2], pw[3], c]
-    
+
     field r = 0
 
     field[3] comb0 = [0, 1, 2]
