@@ -85,12 +85,12 @@ encode the game status according to the rules above and run the code. Command li
  * last winner move (which is not affected by looser game state signature)
 
 ```
-java -jar ./build/libs/paramgroup-all-1.0-SNAPSHOT.jar 123 3 1 9 9 4 5 9 9 2
+java -jar ./build/libs/paramgroup-all-1.0-SNAPSHOT.jar 123 0 1 9 9 4 5 9 9 4 2
 ```
 
 the goal is to have the compute-witness command out of this code. Example:
 ```
-zokrates compute-witness -a 123 143110950276817851694412848238637525611 156833781044329042438065648861779802984 0 1 9 9 4 5 9 9 4
+zokrates compute-witness -a 123 143110950276817851694412848238637525611 156833781044329042438065648861779802984 0 1 9 9 4 5 9 9 2
 ```
 
 
