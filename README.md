@@ -104,6 +104,19 @@ zokrates compute-witness -a 123 143110950276817851694412848238637525611 15683378
 ./zokrates export-verifier
 ````
 
+#### Deployment & verification (Truffle & Ganache)
+Extract verifier smart contract and proof.json from zokrates docker image
+```
+docker cp <docker_id>:/home/zokrates/verifier.sol ./contracts
+docker cp <docker_id>:/home/zokrates/proof.json ./test/common/
+```
+
+make sure Ganache is running and run tests with truffle
+
+```
+truffle test
+```
+
 #### Deployment & verification (Dummy way)
 Extract verifier smart contract from zokrates docker image
 ```
