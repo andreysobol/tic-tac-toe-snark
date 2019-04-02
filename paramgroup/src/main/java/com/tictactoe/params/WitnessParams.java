@@ -8,7 +8,31 @@ import java.math.BigInteger;
 
 public class WitnessParams {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
+
+        int[] pw = new int[] {0, 1, 9, 9};
+        int[] pl = new int[] {4, 5, 9, 9};
+        int c = 2;
+        int gameID= 123;
+
+        if(args.length>0) {
+            System.out.println("Reading params from command line... ");
+            int index = 0;
+            gameID = Integer.parseInt(args[index++]);
+            System.out.println("gameID="+gameID);
+            for (int i = 0; i < 4; i++) {
+                pw[i] = Integer.parseInt(args[index++]);
+                System.out.println("pw["+i+"]="+pw[i]);
+            }
+            for (int i = 0; i < 4; i++) {
+                pl[i] = Integer.parseInt(args[index++]);
+                System.out.println("pl["+i+"]="+pw[i]);
+            }
+            c = Integer.parseInt(args[index++]);
+            System.out.println("c="+c);
+        }
+        else
+            System.out.println("Using compiled-in params");
 
         //field[2] hash1 = sha256packed(pw)
         //field[2] hash2 = sha256packed(pl)
@@ -16,11 +40,6 @@ public class WitnessParams {
         //field[2] hash4 = sha256packed([0, gameID, hash3[0], hash3[1]])
         //hash4[0] == shaValue[0]
         //hash4[1] == shaValue[1]
-
-        int[] pw = new int[] {0, 1, 9, 9};
-        int[] pl = new int[] {4, 5, 9, 9};
-        int c = 2;
-        int gameID = 123;
 
         byte[] hash1byte = org.web3j.crypto.Hash.sha256(Arrays.concatenate(
                 Numeric.toBytesPadded(BigInteger.valueOf(pw[0]), 16),
