@@ -12,7 +12,7 @@ contract("ZKTicTacToe", async (accounts) => {
   	let K = proof.K;
     let Input = input;
     let gameId = Input[0];
-    let shaValue = Input[1];
+    let shaValue = ('0x' + new web3.utils.BN(Input[1]).toString(16, 32) + new web3.utils.BN(Input[2]).toString(16, 32));
 
     // incorrect proof value
     let A_false = ["0x28412ee8948d4f99ea4f59ab58e698a1cd2365b3c7613a37ba3de56cb124dff7", "0x23ea3c53236cc9e3091a65b678210437be82520f9899edf15beec13e7fa0f277"];
@@ -34,7 +34,7 @@ contract("ZKTicTacToe", async (accounts) => {
     });
 
     it("should send correct verification", async () => {
-        let signature = await web3.eth.sign('0x' + (new web3.utils.BN(shaValue)).toString(16, 64), user_looser);
+        let signature = await web3.eth.sign(shaValue, user_looser);
         await ZKTicTacToe.deployed()
             .then(async instance => {
                 let recipe = await instance.verifyTx(
@@ -56,7 +56,7 @@ contract("ZKTicTacToe", async (accounts) => {
     });
 
     it("should fail with incorrect proof", async () => {
-        let signature = await web3.eth.sign('0x' + (new web3.utils.BN(shaValue)).toString(16, 64), user_looser);
+        let signature = await web3.eth.sign(shaValue, user_looser);
         await ZKTicTacToe.deployed()
             .then(async instance => {
                 let recipe = await instance.verifyTx(
@@ -80,7 +80,7 @@ contract("ZKTicTacToe", async (accounts) => {
     });
 
     it("should fail with incorrect user account", async () => {
-        let signature = await web3.eth.sign('0x' + (new web3.utils.BN(shaValue)).toString(16, 64), user_fake);
+        let signature = await web3.eth.sign(shaValue, user_fake);
         await ZKTicTacToe.deployed()
             .then(async instance => {
                 let recipe = await instance.verifyTx(

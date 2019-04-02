@@ -68,7 +68,7 @@ contract VerifierInterface {
             uint[2]  memory c_p,
             uint[2]  memory h,
             uint[2]  memory k,
-            uint[3]  memory input
+            uint[4]  memory input
         ) public returns (bool r);
 }
 
@@ -186,7 +186,7 @@ contract ZKTickTacToe{
 
             require(_prevalidate(_gameID,_shaMovesGameID,_signature));
 
-            uint[3] memory input = [uint(_gameID), _shaMovesGameID, 1];
+            uint[4] memory input = [uint(_gameID), uint128(_shaMovesGameID >> 128), uint128(_shaMovesGameID), 1];
             //
             emit Error("Game validation done");
 
@@ -201,4 +201,10 @@ contract ZKTickTacToe{
             }
 
         }
+
+
+
+
+
+
 }
